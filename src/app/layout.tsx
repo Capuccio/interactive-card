@@ -1,10 +1,13 @@
-import type { Metadata } from 'next'
+import type { Metadata } from 'next';
+import localFont from 'next/font/local';
 import { GlobalStyles } from './global.styles';
 
 export const metadata: Metadata = {
   title: 'Frontend Mentor | Interactive card details form',
   description: 'Interactive Card',
 }
+
+const myFont = localFont({ src: '../../public/fonts/SpaceGrotesk-Medium.ttf' });
 
 export default function RootLayout({
   children,
@@ -13,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={myFont.className}>
         {children}
         <GlobalStyles />
       </body>

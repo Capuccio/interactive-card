@@ -17,7 +17,7 @@ export default function Home() {
         000
         Completed state start
         Thank you!
-        We've added your card details
+        We&apos;ve added your card details
         Continue
         <div className="attribution">
           Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
