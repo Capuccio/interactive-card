@@ -38,7 +38,7 @@ export const CFrontBottomInfo = styled.div`
 	display: flex;
 	justify-content: space-between;
 	letter-spacing: 2px;
-	font-size: 12px;
+	font-size: 0.75rem;
 `
 
 export const CFrontBottomName = styled.span`

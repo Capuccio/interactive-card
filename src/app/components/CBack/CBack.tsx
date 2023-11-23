@@ -1,9 +1,11 @@
-import { CBackContainer } from "./CBack.styles";
+import { CBackContainer, CBackCvc } from "./CBack.styles";
 
 export default function CBack() {
 	return (
 		<CBackContainer>
-			000
+			<CBackCvc>
+				000
+			</CBackCvc>
 		</CBackContainer>
 	)
 }
