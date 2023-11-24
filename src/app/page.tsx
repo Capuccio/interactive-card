@@ -14,7 +14,6 @@ export default function Home() {
           <CBack />
         </CardsContainer>
         <CForm />
-        000
         Completed state start
         Thank you!
         We&apos;ve added your card details
