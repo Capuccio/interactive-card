@@ -17,8 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={myFont.className}>
-        {children}
         <GlobalStyles />
+        {children}
       </body>
     </html>
   )
