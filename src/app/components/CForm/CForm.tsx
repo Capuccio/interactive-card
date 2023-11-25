@@ -16,13 +16,13 @@ export default function CForm() {
 				<div style={{ flex: '1' }}>
 					<CLabel>Exp. Date (MM/YY)</CLabel>
 					<div style={{ display: 'flex', gap: '10px' }}>
-						<CInput style={{ width: '80px' }} name="month" type="text" placeholder="MM" />
-						<CInput style={{ width: '80px' }} name="year" type="text" placeholder="YY" />
+						<CInput style={{ width: '75px' }} name="month" type="text" placeholder="MM" />
+						<CInput style={{ width: '75px' }} name="year" type="text" placeholder="YY" />
 					</div>
 				</div>
 				<div>
 					<CLabel>CVC</CLabel>
-					<CInput name="code" type="text" placeholder="e.g. 123" />
+					<CInput style={{ width: '150px' }} name="code" type="text" placeholder="e.g. 123" />
 				</div>
 			</div>
 			<CButton callback={() => console.log('click')} type={ButtonType.SUBMIT}>Confirm</CButton>
