@@ -1,15 +1,19 @@
+"use client"
+
 import { createContext, useContext, useState } from 'react';
 
-export const emptyCardInfo = {
+import { CardInfoModel } from '@/model';
+
+export const emptyCardInfo: CardInfoModel = {
 	name: '',
-	number_card: '',
+	card: '',
 	month: '',
 	year: '',
-	cvv: ''
+	code: ''
 }
 
 const CardContext = createContext({
-	cardInfo: emptyCardInfo,
+	cardInfo: {} as CardInfoModel,
 	setCardInfo: (_value: any) =>  {}
 })
 

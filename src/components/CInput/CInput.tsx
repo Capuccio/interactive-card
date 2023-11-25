@@ -1,3 +1,4 @@
+import { kMaxLength } from "buffer";
 import { CInputStyled } from "./CInput.styles";
 
 interface CInputProps {
@@ -9,13 +10,23 @@ interface CInputProps {
 	disabled?: boolean;
 	pattern?: string;
 	title?: string;
+	value?: string;
 	defaultValue?: string;
 	labelHidden?: boolean;
+	maxLength?: number;
 	style?: React.CSSProperties;
 }
 
-export default function CInput({ type = "text", placeholder, name, style, required }: CInputProps) {
+export default function CInput({ type = "text", ...props }: CInputProps) {
 	return (
-		<CInputStyled style={style} type={type} name={name} placeholder={placeholder} required={required} />
+		<CInputStyled
+			style={props.style}
+			type={type}
+			name={props.name}
+			placeholder={props.placeholder}
+			required={props.required}
+			value={props.value}
+			onChange={props.onChange}
+			maxLength={props.maxLength} />
 	)
 }

@@ -25,12 +25,11 @@ export const CFrontBottom = styled.div`
 `
 
 export const CFrontBottomNumbersContainer = styled.div`
-	display: flex;
-	gap: 9px;
 	font-size: 1.82rem;
 `
 
 export const CFrontBottomNumbers = styled.span`
+	width: 100%;
 	letter-spacing: 0.20rem;
 `
 

@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import {
 	CFrontBottom,
 	CFrontBottomInfo,
@@ -9,33 +10,28 @@ import {
 	CFrontTop
 } from "./CFront.styles";
 
+import { useCardContext } from "@/context";
+
 export default function CFront() {
+	const { cardInfo } = useCardContext();
+
 	return (
 		<CFrontContainer>
 			<CFrontTop>
-				<Image alt="a" src="/card-logo.svg" width={72} height={42} />
+				<Image alt="card logo" src="/card-logo.svg" width={72} height={42} />
 			</CFrontTop>
 			<CFrontBottom>
 				<CFrontBottomNumbersContainer>
 					<CFrontBottomNumbers>
-						0000
-					</CFrontBottomNumbers>
-					<CFrontBottomNumbers>
-						0000
-					</CFrontBottomNumbers>
-					<CFrontBottomNumbers>
-						0000
-					</CFrontBottomNumbers>
-					<CFrontBottomNumbers>
-						0000
+						{cardInfo.card.length > 0 ? cardInfo.card : '0000 0000 0000 0000'}
 					</CFrontBottomNumbers>
 				</CFrontBottomNumbersContainer>
 				<CFrontBottomInfo>
 					<CFrontBottomName>
-						Jane Appleseed
+						{cardInfo.name.length > 0 ? cardInfo.name : 'Jane Appleseed'}
 					</CFrontBottomName>
 					<span>
-						00/00
+						{cardInfo.month.length > 0 ? cardInfo.month : '00'}/{cardInfo.year.length > 0 ? cardInfo.year : '00'}
 					</span>
 				</CFrontBottomInfo>
 			</CFrontBottom>
