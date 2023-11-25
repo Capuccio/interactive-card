@@ -6,7 +6,7 @@ export default function CForm() {
 		<CFormContainer>
 			<div>
 				<CLabel>CARDHOLDER NAME</CLabel>
-				<CInput name="user" type="text" placeholder="e.g. Jane Appleseed" />
+				<CInput name="name" type="text" placeholder="e.g. Jane Appleseed" />
 			</div>
 			<div>
 				<CLabel htmlFor="number_card">CARD NUMBER</CLabel >
