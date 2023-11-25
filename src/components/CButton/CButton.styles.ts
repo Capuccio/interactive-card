@@ -7,4 +7,5 @@ export const CButtonStyled = styles.button`
 	border: none;
 	cursor: pointer;
 	border-radius: 0.5rem;
+	width: 100%;
 `
