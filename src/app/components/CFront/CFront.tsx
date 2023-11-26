@@ -7,7 +7,8 @@ import {
 	CFrontBottomNumbers,
 	CFrontBottomNumbersContainer,
 	CFrontContainer,
-	CFrontTop
+	CFrontTop,
+	CardLogo
 } from "./CFront.styles";
 
 import { useCardContext } from "@/context";
@@ -18,7 +19,7 @@ export default function CFront() {
 	return (
 		<CFrontContainer>
 			<CFrontTop>
-				<Image alt="card logo" src="/card-logo.svg" width={72} height={42} />
+				<CardLogo alt="card logo" src="/card-logo.svg" width={0} height={0} />
 			</CFrontTop>
 			<CFrontBottom>
 				<CFrontBottomNumbersContainer>
