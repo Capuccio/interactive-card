@@ -23,6 +23,10 @@ export default function CForm() {
 		const name: string = e.target.name;
 		let value: string | undefined = e.target.value;
 
+		if (value.length === 0) setErrors((pvSt) => ({ ...pvSt, [name]: "Can't be blank" }));
+		else if (name !== "name" && isNaN(value.replace(/\s/g, "") as any)) setErrors((pvSt) => ({ ...pvSt, [name]: "Wrong format, numbers only" }));
+		else setErrors((pvSt) => ({ ...pvSt, [name]: "" }));
+
 		if (name === "card") value = value.replace(/\W/gi, '').replace(/(.{4})/g, '$1 ').trim();
 
 		setCardInfo((pvSt: any) => ({ ...pvSt, [name]: value }));
@@ -33,23 +37,20 @@ export default function CForm() {
 		const target = e.target as typeof e.target & HTMLFormElement;
 		const form = Object.fromEntries(new FormData(target));
 		const formJson = JSON.parse(JSON.stringify(form));
+		const errorsCopy: any = { ...errors }
 
-		let errorsJson: any = {}
+		let fieldsEmpty: boolean = false;
+
+		for (const key in errorsCopy) if (errorsCopy[key].length > 0) fieldsEmpty = true;
+
 		for (const key in formJson) {
-			if (formJson[key].length === 0) errorsJson = { ...errorsJson, [key]: "Can't be blank" }
-			else if (key !== "name" && isNaN(formJson[key].replace(/\s/g, "") as any)) errorsJson = { ...errorsJson, [key]: "Wrong format, numbers only" }
-			else errorsJson = { ...errorsJson, [key]: "" }
-		}
-
-
-		for (const key in errorsJson) {
-			if (errorsJson[key].length > 0) {
-				setErrors(errorsJson as any);
-				return;
+			if (formJson[key].length === 0) {
+				fieldsEmpty = true;
+				setErrors((pvSt) => ({ ...pvSt, [key]: "Can't be blank" }));
 			}
 		}
 
-		return router.push("/success", { shallow: true });
+		if (!fieldsEmpty) router.push("/success", { shallow: true });
 	}
 
 	return (
