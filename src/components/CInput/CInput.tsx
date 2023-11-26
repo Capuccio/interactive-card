@@ -22,6 +22,7 @@ export default function CInput({ type = "text", message = "", ...props }: CInput
 	return (
 		<div>
 			<CInputStyled
+				$message={message}
 				style={props.style}
 				type={type}
 				name={props.name}

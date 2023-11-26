@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const CInputStyled = styled.input`
+export const CInputStyled = styled.input<{ $message?: string; }>`
 	font-family: inherit;
-	border-color: hsl(270, 3%, 87%);
+	border-color: ${props => props.$message && props.$message.length > 0 ? 'hsl(0, 100%, 66%)' : 'hsl(270, 3%, 87%)' };
 	border-width: 1.5px;
 	border-style: solid;
 	padding: 0.65rem;
