@@ -5,8 +5,8 @@ import { GlobalStyles } from './global.styles';
 import CardProvider from '@/context/CardContext';
 
 export const metadata: Metadata = {
-  title: 'Frontend Mentor | Interactive card details form',
-  description: 'Interactive Card',
+  title: 'Interactive card',
+  description: 'Interactive Card challenge by Frontend Mentor',
 }
 
 const myFont = localFont({ src: '../../public/fonts/SpaceGrotesk-Medium.ttf' });
