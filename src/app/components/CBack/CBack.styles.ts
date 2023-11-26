@@ -19,8 +19,14 @@ export const CBackContainer = styled.div`
 
 export const CBackCvc = styled.p`
 	position: absolute;
+	color: hsl(0, 0%, 100%);
 	right: 60px;
 	top: 50%;
 	transform: translateY(-60%);
 	letter-spacing: 0.125rem;
+
+	@media (max-width: 1024px) {
+		font-size: 0.60rem;
+		right: 32px;
+	}
 `

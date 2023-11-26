@@ -56,7 +56,7 @@ export const CFrontBottom = styled.div`
 export const CFrontBottomNumbersContainer = styled.div`
 	font-size: 1.82rem;
 	@media (max-width: 1024px) {
-		font-size: 0.888rem;
+		font-size: 1.03rem;
 	}
 `
 
@@ -70,7 +70,7 @@ export const CFrontBottomInfo = styled.div`
 	letter-spacing: 2px;
 	font-size: 0.75rem;
 	@media (max-width: 1024px) {
-		font-size: 0.45rem;
+		font-size: 0.60rem;
 	}
 `
 
