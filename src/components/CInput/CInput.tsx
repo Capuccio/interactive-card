@@ -1,5 +1,5 @@
 import { kMaxLength } from "buffer";
-import { CInputStyled } from "./CInput.styles";
+import { CInputError, CInputStyled } from "./CInput.styles";
 
 interface CInputProps {
 	type: string;
@@ -14,19 +14,24 @@ interface CInputProps {
 	defaultValue?: string;
 	labelHidden?: boolean;
 	maxLength?: number;
+	message?: string;
 	style?: React.CSSProperties;
 }
 
-export default function CInput({ type = "text", ...props }: CInputProps) {
+export default function CInput({ type = "text", message = "", ...props }: CInputProps) {
 	return (
-		<CInputStyled
-			style={props.style}
-			type={type}
-			name={props.name}
-			placeholder={props.placeholder}
-			required={props.required}
-			value={props.value}
-			onChange={props.onChange}
-			maxLength={props.maxLength} />
+		<div>
+			<CInputStyled
+				style={props.style}
+				type={type}
+				name={props.name}
+				placeholder={props.placeholder}
+				required={props.required}
+				value={props.value}
+				onChange={props.onChange}
+				maxLength={props.maxLength}
+			/>
+			{message.length > 0 && <CInputError>{message}</CInputError>}
+		</div>
 	)
 }

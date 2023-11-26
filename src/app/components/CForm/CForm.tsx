@@ -1,56 +1,81 @@
 "use client"
 
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
 import { ButtonType, CButton, CInput, CLabel } from "@/components"
 import { CFormContainer } from "./CForm.styles"
+
 import { useCardContext } from "@/context"
-import { validateNumbers } from "@/util"
 
 export default function CForm() {
-	const { cardInfo, setCardInfo } = useCardContext()
+	const router = useRouter();
+	const { cardInfo, setCardInfo } = useCardContext();
+	const [errors, setErrors] = useState({
+		name: "",
+		card: "",
+		month: "",
+		year: "",
+		code: ""
+	})
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const name: string = e.target.name;
 		let value: string | undefined = e.target.value;
 
-		//if (name !== "name") validateNumbers(value);
-		if (name === "card") {
-			value = value.replace(/\W/gi, '').replace(/(.{4})/g, '$1 ').trim();
-		}
+		if (name === "card") value = value.replace(/\W/gi, '').replace(/(.{4})/g, '$1 ').trim();
 
 		setCardInfo((pvSt: any) => ({ ...pvSt, [name]: value }));
 	}
 
-	const handleNumberCard = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const name = e.target.name;
-		const value = e.target.value;
+	const submitForm = (e: React.FormEvent): void => {
+		e.preventDefault();
+		const target = e.target as typeof e.target & HTMLFormElement;
+		const form = Object.fromEntries(new FormData(target));
+		const formJson = JSON.parse(JSON.stringify(form));
 
-		setCardInfo((pvSt: any) => ({ ...pvSt, [name]: value }));
+		let errorsJson: any = {}
+		for (const key in formJson) {
+			if (formJson[key].length === 0) errorsJson = { ...errorsJson, [key]: "Can't be blank" }
+			else if (key !== "name" && isNaN(formJson[key].replace(/\s/g, "") as any)) errorsJson = { ...errorsJson, [key]: "Wrong format, numbers only" }
+			else errorsJson = { ...errorsJson, [key]: "" }
+		}
+
+
+		for (const key in errorsJson) {
+			if (errorsJson[key].length > 0) {
+				setErrors(errorsJson as any);
+				return;
+			}
+		}
+
+		return router.push("/success", { shallow: true });
 	}
 
 	return (
-		<CFormContainer>
+		<CFormContainer onSubmit={submitForm}>
 			<div>
 				<CLabel>CARDHOLDER NAME</CLabel>
-				<CInput name="name" type="text" placeholder="e.g. Jane Appleseed" value={cardInfo.name} onChange={handleChange} maxLength={34} />
+				<CInput name="name" type="text" placeholder="e.g. Jane Appleseed" value={cardInfo.name} onChange={handleChange} maxLength={34} message={errors.name} />
 			</div>
 			<div>
-				<CLabel htmlFor="card">CARD NUMBER</CLabel >
-				<CInput name="card" type="text" placeholder="e.g. 1234 5678 9123 0000" value={cardInfo.card} onChange={handleChange} maxLength={19} />
+				<CLabel htmlFor="card">CARD NUMBER</CLabel>
+				<CInput name="card" type="text" placeholder="e.g. 1234 5678 9123 0000" value={cardInfo.card} onChange={handleChange} maxLength={19} message={errors.card} />
 			</div>
 			<div style={{ display: 'flex'}}>
 				<div style={{ flex: '1' }}>
 					<CLabel>Exp. Date (MM/YY)</CLabel>
 					<div style={{ display: 'flex', gap: '10px' }}>
-						<CInput style={{ width: '75px' }} name="month" type="text" placeholder="MM" onChange={handleChange} maxLength={2} />
-						<CInput style={{ width: '75px' }} name="year" type="text" placeholder="YY" onChange={handleChange} maxLength={2} />
+						<CInput style={{ width: '75px' }} name="month" type="text" value={cardInfo.month} placeholder="MM" onChange={handleChange} maxLength={2} message={errors.month} />
+						<CInput style={{ width: '75px' }} name="year" type="text" value={cardInfo.year} placeholder="YY" onChange={handleChange} maxLength={2} message={errors.year} />
 					</div>
 				</div>
 				<div>
 					<CLabel>CVC</CLabel>
-					<CInput style={{ width: '150px' }} name="code" type="text" placeholder="e.g. 123" onChange={handleChange} maxLength={3} />
+					<CInput style={{ width: '150px' }} name="code" type="text" value={cardInfo.code} placeholder="e.g. 123" onChange={handleChange} maxLength={3} message={errors.code} />
 				</div>
 			</div>
-			<CButton callback={() => console.log('click')} type={ButtonType.SUBMIT}>Confirm</CButton>
+			<CButton type={ButtonType.SUBMIT}>Confirm</CButton>
 		</CFormContainer>
 	)
 }

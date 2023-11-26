@@ -17,3 +17,8 @@ export const CInputStyled = styled.input`
 		border-color: hsl(249, 99%, 64%) #6929c7 hsl(278, 94%, 30%);
  	}
 `
+
+export const CInputError = styled.span`
+	font-size: 0.6rem;
+	color: hsl(0, 100%, 66%);
+`

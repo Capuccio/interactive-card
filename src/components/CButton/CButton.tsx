@@ -9,13 +9,13 @@ export enum ButtonType {
 interface CButtonProps {
 	children: React.ReactNode;
 	type?: ButtonType;
-	callback: () => void;
+	onClick?: () => void;
 }
 
-export function CButton({ children, callback, type = ButtonType.BUTTON }: CButtonProps) {
-	const handleClick = () => callback();
+export function CButton({ type = ButtonType.BUTTON, ...props }: CButtonProps) {
+	const handleClick = () => props.onClick && props.onClick();
 
 	return (
-		<CButtonStyled onClick={handleClick} type={type}>{children}</CButtonStyled>
+		<CButtonStyled onClick={handleClick} type={type}>{props.children}</CButtonStyled>
 	)
 }

@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { GlobalStyles } from './global.styles';
 
+import CardProvider from '@/context/CardContext';
+
 export const metadata: Metadata = {
   title: 'Frontend Mentor | Interactive card details form',
   description: 'Interactive Card',
@@ -18,7 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={myFont.className}>
         <GlobalStyles />
-        {children}
+        <CardProvider>
+          {children}
+        </CardProvider>
       </body>
     </html>
   )
