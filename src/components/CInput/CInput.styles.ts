@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const CInputStyled = styled.input<{ $message?: string; }>`
 	font-family: inherit;
-	border-color: ${props => props.$message && props.$message.length > 0 ? 'hsl(0, 100%, 66%)' : 'hsl(270, 3%, 87%)' };
+	border-color: ${props => props.$message && props.$message.length > 0 ? 'var(--error-input)' : 'var(--light-grayish-violet)' };
 	border-width: 1.5px;
 	border-style: solid;
 	padding: 0.65rem;
@@ -14,11 +14,11 @@ export const CInputStyled = styled.input<{ $message?: string; }>`
 
 	&:focus {
 		outline: none;
-		border-color: hsl(249, 99%, 64%) #6929c7 hsl(278, 94%, 30%);
+		border-color: var(--active-input-top) var(--active-input-mid) var(--active-input-bottom);
  	}
 `
 
 export const CInputError = styled.span`
 	font-size: 0.6rem;
-	color: hsl(0, 100%, 66%);
+	color: var(--error-input);
 `

@@ -19,6 +19,6 @@ export const MessageContainer = styled.div`
 	}
 
 	& > span {
-		color: hsl(279, 6%, 55%);
+		color: var(--dark-grayish-violet);
 	}
 `

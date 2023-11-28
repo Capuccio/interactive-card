@@ -2,8 +2,8 @@ import styles from 'styled-components';
 
 export const CButtonStyled = styles.button`
 	font-family: inherit;
-	background-color: hsl(278, 68%, 11%);
-	color: hsl(0, 0%, 100%);
+	background-color: var(--very-dark-violet);
+	color: var(--white);
 	padding: 0.95rem 0;
 	border: none;
 	cursor: pointer;

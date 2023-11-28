@@ -45,7 +45,7 @@ export const CFrontBottom = styled.div`
 	gap: 30px;
 	padding: 0 30px 26px;
 	bottom: 0px;
-	color: hsl(0, 0%, 100%);
+	color: var(--white);
 
 	@media (max-width: 1024px) {
 		padding: 0 15px 18px;

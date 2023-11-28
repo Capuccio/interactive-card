@@ -19,7 +19,7 @@ export const CBackContainer = styled.div`
 
 export const CBackCvc = styled.p`
 	position: absolute;
-	color: hsl(0, 0%, 100%);
+	color: var(--white);
 	right: 60px;
 	top: 50%;
 	transform: translateY(-60%);
