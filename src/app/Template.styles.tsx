@@ -5,10 +5,12 @@ export const TemplateContainer = styled.main`
 	height: 100%;
 	display: flex;
   flex-direction: column;
+  gap: 1.4rem;
 
 	@media (min-width: 1024px) {
     flex-direction: row;
     justify-content: space-between;
+    gap: 0;
 	}
 `
 
@@ -36,13 +38,11 @@ export const LeftColumnImage = styled.div`
 `
 
 export const RightColumn = styled.section`
-	justify-content: start;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex: 1;
-
 	@media (min-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
 	}
 `
 
