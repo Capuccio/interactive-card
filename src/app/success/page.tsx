@@ -1,16 +1,14 @@
 "use client"
 
 import Image from "next/image";
-import { useRouter } from 'next/navigation';
 
 import { ButtonType, CButton } from "@/components";
-import { emptyCardInfo, useCardContext } from "@/context";
 
-import { MessageContainer, SucessContainer } from "./Success.styles";
+import { MessageContainer, SucessContainer } from "@/features/success/Success.styles";
+import { SucessLogic } from '@/features/success/Sucess.logic';
 
 export default function Success() {
-	const router = useRouter();
-	const { cardInfo, setCardInfo } = useCardContext();
+  const { continueButton } = SucessLogic();
 
 	return (
 		<SucessContainer>
@@ -19,10 +17,7 @@ export default function Success() {
 				<p>THANK YOU!</p>
 				<span>We&apos;ve added your card details</span>
 			</MessageContainer>
-			<CButton onClick={() => {
-				setCardInfo(emptyCardInfo);
-				router.push("/");
-			}} type={ButtonType.BUTTON}>Continue</CButton>
+			<CButton onClick={continueButton} type={ButtonType.BUTTON}>Continue</CButton>
 		</SucessContainer>
 	)
 }

@@ -9,12 +9,12 @@ import {
 	CFrontContainer,
 	CFrontTop,
 	CardLogo
-} from "./CFront.styles";
+} from "./Front.styles";
 
 import { useCardContext } from "@/context";
 
 export default function CFront() {
-	const { cardInfo } = useCardContext();
+	const { card } = useCardContext();
 
 	return (
 		<CFrontContainer>
@@ -24,15 +24,15 @@ export default function CFront() {
 			<CFrontBottom>
 				<CFrontBottomNumbersContainer>
 					<CFrontBottomNumbers>
-						{cardInfo.card.length > 0 ? cardInfo.card : '0000 0000 0000 0000'}
+						{card.card.length > 0 ? card.card : '0000 0000 0000 0000'}
 					</CFrontBottomNumbers>
 				</CFrontBottomNumbersContainer>
 				<CFrontBottomInfo>
 					<CFrontBottomName>
-						{cardInfo.name.length > 0 ? cardInfo.name : 'Jane Appleseed'}
+						{card.name.length > 0 ? card.name : 'Jane Appleseed'}
 					</CFrontBottomName>
 					<span>
-						{cardInfo.month.length > 0 ? cardInfo.month : '00'}/{cardInfo.year.length > 0 ? cardInfo.year : '00'}
+						{card.month.length > 0 ? card.month : '00'}/{card.year.length > 0 ? card.year : '00'}
 					</span>
 				</CFrontBottomInfo>
 			</CFrontBottom>

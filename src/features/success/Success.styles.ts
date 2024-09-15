@@ -4,7 +4,13 @@ export const SucessContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+  margin: 0 auto;
+  width: 90%;
 	gap: 35px;
+
+  @media (min-width: 1024px) {
+    width: 24rem;
+  }
 `
 
 export const MessageContainer = styled.div`

@@ -1,66 +1,66 @@
 import styled from 'styled-components'
 
 export const TemplateContainer = styled.main`
-	width: 100%;
+  width: 100vw;
 	height: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+	display: flex;
+  flex-direction: column;
 
-	@media (max-width: 1024px) {
-		grid-template-columns: 1fr;
+	@media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-between;
 	}
 `
 
 export const LeftColumn = styled.section`
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 
-	@media (max-width: 1024px) {
-		display: block;
+  @media (min-width: 1024px) {
+    justify-content: center;
 	}
 `
 
 export const LeftColumnImage = styled.div`
-	background-image: url('/bg-main-desktop.png');
-	background-repeat: no-repeat;
-	height: 100%;
-	width: 483px;
+  background-image: url('/bg-main-mobile.png');
+	background-size: 100%;
+	height: 240px;
+	width: 100%;
 
-	@media (max-width: 1024px) {
-		background-image: url('/bg-main-mobile.png');
-		background-size: 100%;
-		height: 240px;
-		width: 100%;
+	@media (min-width: 1024px) {
+    background-image: url('/bg-main-desktop.png');
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 483px;
 	}
 `
 
 export const RightColumn = styled.section`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	justify-content: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
 
-	@media (max-width: 1024px) {
-		justify-content: start;
+	@media (min-width: 1024px) {
 	}
 `
 
 export const CardsContainer = styled.div`
-	position: absolute;
-	top: auto;
-	left: 180px;
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-	user-select: none;
+  padding-top: 1.2rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  width: fit-content;
+  margin: 0 auto;
+  flex-direction: column-reverse;
 
-	@media (max-width: 1024px) {
-		top: 3vh;
-		left: 0;
-		gap: 0;
-		width: 100%;
-		align-items: center;
-		flex-direction: column-reverse;
+	@media (min-width: 1024px) {
+    align-items: start;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 0;
+    user-select: none;
+    margin-left: 10rem;
 	}
 `

@@ -13,9 +13,7 @@ export const GlobalStyles = createGlobalStyle`
 		--error-input: hsl(0, 100%, 66%);
 	}
 
-	*,
-	*::before,
-	*::after {
+	* {
 		box-sizing: border-box;
 		margin: 0;
 		padding: 0;
@@ -24,11 +22,28 @@ export const GlobalStyles = createGlobalStyle`
 	html,
 	body {
 		max-width: 100vw;
-		overflow-x: hidden;
+		height: 100%;
   	margin: 0;
   	padding: 0;
-		height: 100%;
-}
+  }
+
+  body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('/bg-main-mobile.png');
+    background-size: cover;
+    height: 13.5rem;
+    width: 100%;
+    z-index: -1;
+
+    @media (min-width: 1024px) {
+      background-image: url('/bg-main-desktop.png');
+      height: 100%;
+      width: 27rem;
+    }
+  }
 
 	input, label {
 		display: block;

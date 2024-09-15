@@ -1,4 +1,4 @@
-import { CLabelStyled } from "./CLabel.styles";
+import { LabelStyled } from "./CLabel.styles";
 
 interface CLabelProps {
 	children: React.ReactNode;
@@ -7,6 +7,6 @@ interface CLabelProps {
 
 export default function CLabel(props: CLabelProps) {
 	return (
-		<CLabelStyled htmlFor={props.htmlFor}>{props.children}</CLabelStyled>
+		<LabelStyled htmlFor={props.htmlFor}>{props.children}</LabelStyled>
 	)
 }

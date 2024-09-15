@@ -5,7 +5,7 @@ export const CInputStyled = styled.input<{ $message?: string; }>`
 	border-color: ${props => props.$message && props.$message.length > 0 ? 'var(--error-input)' : 'var(--light-grayish-violet)' };
 	border-width: 1.5px;
 	border-style: solid;
-	padding: 0.65rem;
+	padding: 0.75rem;
 	width: 100%;
 	border-radius: 8px;
 	background-color: transparent;
@@ -19,6 +19,6 @@ export const CInputStyled = styled.input<{ $message?: string; }>`
 `
 
 export const CInputError = styled.span`
-	font-size: 0.6rem;
+	font-size: 0.7rem;
 	color: var(--error-input);
 `
