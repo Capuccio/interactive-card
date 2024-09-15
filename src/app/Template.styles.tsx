@@ -5,7 +5,7 @@ export const TemplateContainer = styled.main`
 	height: 100%;
 	display: flex;
   flex-direction: column;
-  gap: 1.4rem;
+  gap: 2rem;
 
 	@media (min-width: 1024px) {
     flex-direction: row;
