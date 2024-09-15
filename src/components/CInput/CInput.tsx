@@ -2,6 +2,7 @@ import { kMaxLength } from "buffer";
 import { CInputError, CInputStyled } from "./CInput.styles";
 
 interface CInputProps {
+  id?: string;
 	type: string;
 	placeholder: string;
 	name: string;
@@ -22,6 +23,7 @@ export default function CInput({ type = "text", message = "", ...props }: CInput
 	return (
 		<div>
 			<CInputStyled
+        id={props.id}
 				$message={message}
 				style={props.style}
 				type={type}
